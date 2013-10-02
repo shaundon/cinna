@@ -123,6 +123,59 @@ h3 {
 }
 ```
 
+## Shorthand Properties
+
+Use shorthand where it makes sense. For example:
+
+```
+h1 {
+    border: 1px solid #aaa;
+}
+```
+
+is much clearer than:
+
+```
+h1 {
+    border-color: #aaa;
+    border-style: solid;
+    border-width: 1px;
+}
+```
+However, if you only want to override a single property, it's better to just use the second style, to make it clear that's all that's changing. For example:
+
+```
+.column {
+    border: 1px solid #ccc;
+    
+    a {
+        border-color: #369;
+    }
+}
+```
+
+When defining four directions of a property at once, think of **TRouBLed** - Top, Right, Bottom, Left. E.g.:
+
+```
+margin: 5px 0 3px 2px;
+```
+
+is the same as:
+
+```
+margin-top: 5px;
+margin-right: 0;
+margin-bottom: 3px;
+margin-left: 2px;
+```
+
+## Units
+
+Use percentages for larger elements where appropriate, although pixels are acceptable for smaller things, for example margins and padding.
+
+When using zero, don't include a unit, as there's no point. 0px = 0em = 0pt = 0%. So just use 0.
+
+
 ## Mixins
 
 ### Naming
@@ -135,6 +188,57 @@ mixinName() {
 }
 ```
 This allows you to distinguish at a glance between standard CSS properties, which are named like `border-radius`, and a mixin, which would be called `borderRadius`.
+
+## Colours
+
+### Hex vs RGB vs HSL
+
+Hex colours are generally easier to read than RGB and HSL, so use these. However, there's a potential problem - hex colours don't support transparency, like RGBA and HSLA do. You can circumvent this by using one of Stylus's built in functions:
+
+```
+color: rgba(#08c, 0.9);
+```
+
+compiles to:
+
+```
+color: rgba(0, 136, 204, 0.9);
+```
+
+### Shorthand Notation
+
+Where possible, use the shorthand version of hex colours. For example `#9933aa` can be truncated to `#93a`.
+
+### Casing
+
+For consistency, stick to lowercase for colours, e.g. `#fef` over `#FEF`.
+
+## Naming
+
+Name elements semantically. For example, let's say you have a class used to denote if something is important:
+
+```
+.red {
+    color: #c00; /* Red */
+}
+```
+
+Then, you decide that the 'important' colour will now be blue, so you end up with:
+
+```
+.red {
+    color: #08c; /* Blue */
+}
+```
+
+To get around this, use semantic names:
+
+```
+.important {
+    color: #c00;
+}
+```
+
 
 ## Property Status
 
