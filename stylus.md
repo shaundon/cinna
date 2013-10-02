@@ -136,6 +136,23 @@ mixinName() {
 ```
 This allows you to distinguish at a glance between standard CSS properties, which are named like `border-radius`, and a mixin, which would be called `borderRadius`.
 
+## Property Status
+
+### rgba
+
+`rgba` is now supported by all decent browsers, and IE9 onwards. Therefore, if you desperately need IE8 support, simply add a fallback:
+
+```
+selector {
+    background: rgb(127, 127, 127);
+    background: rgba(127, 127, 127, 0.6);
+}
+```
+
+An approach for this in the past would have been to add a fallback that emulates opacity. For example, if you have a dark blue colour, with 40% transparency, it looks like light blue, so the `rgb` fallback would be set to the light blue colour, giving an approximation. With IE8 usage declining, it's recommended to no longer do this, and save time by using the earlier method of just adding the same colour with no alpha channel.
+
+
+
 
 
 
