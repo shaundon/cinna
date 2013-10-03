@@ -45,5 +45,5 @@ If you wouldn't put it in a spreadsheet, don't put it in a table.
 ### CSS Tables
 
 CSS tables are ok. One of the main problems with using a HTML table inappropriately is that it's not semantic. With CSS, you can mark up other elements, like `<div>`s to behave like a table. As this isn't messing with semantics, it's ok.
-    
+      
 

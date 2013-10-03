@@ -255,6 +255,58 @@ selector {
 
 An approach for this in the past would have been to add a fallback that emulates opacity. For example, if you have a dark blue colour, with 40% transparency, it looks like light blue, so the `rgb` fallback would be set to the light blue colour, giving an approximation. With IE8 usage declining, it's recommended to no longer do this, and save time by using the earlier method of just adding the same colour with no alpha channel.
 
+## Optimising Selectors
+
+### The Inception Rule
+
+Try not to go more than four levels deep. E.g.:
+
+```
+.section {
+    .inner {
+        ul {
+            li {
+                a {
+                    img {
+                    }
+                }
+            }
+        }
+    }
+}
+```
+When compiled to CSS, this becomes:
+
+```
+.section { … }
+.section .inner { … }
+.section .inner ul { … }
+.section .inner ul li { … }
+.section .inner ul li a { … }
+.section .inner ul li a img { … }
+```
+
+The longer the chain, the slower your CSS becomes.
+
+In the above example, a good way around this would be to have given the `ul` element its own class, which would have allowed the subsequent elements to be placed in a new chain.
+
+If your stylesheet begins to look like a recreation of the DOM, you're nesting too deep. Remember that the goal is to get reusable, modular styles, not specific, one time use ones.
+
+### Superfluous elements
+
+You'll sometimes see a selector like this:
+
+```
+div#foobar {
+}
+```
+As IDs must be unique, the `div` part isn't needed, and will be needlessly evaluated - slowing the page down. It's better written as:
+
+```
+#foobar {
+}
+```
+
 
 
 
