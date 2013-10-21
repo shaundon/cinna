@@ -22,3 +22,4 @@ This is a work in progress repository. It will eventually include sections on:
 * Tables
 * General Design
 * JavaScript
+* Further Reading, References and Influences
