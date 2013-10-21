@@ -7,6 +7,7 @@ This is a work in progress repository. It will eventually include sections on:
 ## Completed Sections
 
 * Language & Text
+* Tables
 
 ## In Progress
 
@@ -19,7 +20,6 @@ This is a work in progress repository. It will eventually include sections on:
 * Buttons
 * Icons
 * Navigation
-* Tables
 * General Design
 * JavaScript
 * Further Reading, References and Influences
